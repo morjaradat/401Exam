@@ -12,18 +12,6 @@ code {
     monospace;
 }
 
-.HomeCard{
-  display: inline-flex;
-  margin: 60px;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  justify-content: space-between;
-  align-items: center;
-}
-/* img.card-img-top.cardimg {
-  max-width: 70%;
-} */
 .navBar{
   font-size: 1.8rem;
   background-color:black ;

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
-import { Card, Button } from 'react-bootstrap'
+import './Main.css'
 
 export class Main extends Component {
   constructor(props) {
@@ -34,30 +34,43 @@ export class Main extends Component {
     return (
       <>
         <h1 className="main"> Home </h1>
-        {this.state.data.map((i, idx) => {
-          return (
-            <Card key={idx} style={{ width: '18rem' }} className="HomeCard">
-              <Card.Img variant="top" src={i.img} className="cardimg" />
-              <Card.Body>
-                <Card.Title>{i.name}</Card.Title>
-                <Card.Text>
-                  {i.gender}
-                </Card.Text>
-                <Button variant="primary" onClick={e => this.addTOfav(i)}>Add to Favroite</Button>
+        <div id='container'>
+          {this.state.data.map((i, idx) => {
+            return (
+              <div key={idx} className="item" >
                 <div>
-                  {i.psiPowers.map((y, index) => {
-                    return (
-                      <>
-                        <img src={y.img} alt='' />
-                        <h4>{y.name}</h4>
-                      </>
-                    )
-                  })}
+                  <img src={i.img} alt='' className='characterImg' />
                 </div>
-              </Card.Body>
-            </Card>
-          )
-        })}
+
+                <div className='characterData'>
+                  <h2>Name : {i.name}</h2>
+                  <h3>Gender : {i.gender}</h3>
+                  <button className="favButton" onClick={e => this.addTOfav(i)}>Add to Favorite</button>
+                </div>
+
+                {/* <Button  onClick={e => this.addTOfav(i)}>Add to Favorite</Button> */}
+
+
+                <>
+                  <div className="container2">
+
+                    {i.psiPowers.map((y, index) => {
+                      return (
+                        <div className="container2Item">
+                          <img className="ability" src={y.img} alt='' />
+                          <h4>{y.name}</h4>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </>
+
+              </div>
+            )
+          })}
+
+        </div>
+
       </>
     )
   }
